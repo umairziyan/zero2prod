@@ -6,7 +6,7 @@ COPY . .
 ENV SQLX_OFFLINE=true
 RUN cargo build --release
 # Runtime stage
-FROM debian:bullseye-slim AS runtime
+FROM linuxcontainers/debian-slim:latest AS runtime
 WORKDIR /app
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends openssl ca-certificates \
